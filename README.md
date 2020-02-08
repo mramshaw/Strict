@@ -15,21 +15,32 @@ In ___this___ repo I am trying out some things with `node.js`.
 
 ## Method
 
-We will compare and contrast two identical pieces of code, one ___with___ 'use strict' and the
-other ___without___:
+We will compare and contrast two mainly identical pieces of code, one ___with___ 'use strict'
+and the other ___without___:
 
 ```bash
 $ diff -uw strict.js not_strict.js 
---- strict.js	2020-02-08 14:23:48.541546584 -0500
-+++ not_strict.js	2020-02-08 14:26:32.379495027 -0500
+--- strict.js	2020-02-08 15:43:28.560093898 -0500
++++ not_strict.js	2020-02-08 15:35:35.486426106 -0500
 @@ -1,5 +1,3 @@
 -"use strict";
 -
  // --- null ---
  
  let a = null;
+@@ -34,7 +32,7 @@
+ // $ node -c strict.js
+ // SyntaxError: Delete of an unqualified identifier in strict mode.
+ 
+-//delete g;
++delete g;
+ 
+ // 'undefined'
+ console.log("'g' is of type: " + (typeof g));
 $
 ```
+
+Note that the line 'delete g;' is commented-out in `strict.js`.
 
 #### node --check
 
@@ -77,16 +88,25 @@ $
 
 #### with 'use strict'
 
-And here we will execute the same code, this time with `"use strict"`:
+And here we will execute the same code (but with 'delete g;' commented-out),
+this time with `"use strict"`:
 
 ```bash
 $ node strict.js
-/home/owner/Documents/node.js/Strict/strict.js:37
-delete g;
-       ^
+null
+'a' is of type: object
+'null' is of type: object
+a is null, 'a' === null ? = true
+undefined
+'b' is of type: undefined
+b is undefined, 'b' === undefined ? = true
+/home/owner/Documents/node.js/Strict/strict.js:25
+g = "I am a Global variable";
+  ^
 
-SyntaxError: Delete of an unqualified identifier in strict mode.
-    at Module._compile (internal/modules/cjs/loader.js:891:18)
+ReferenceError: g is not defined
+    at Object.<anonymous> (/home/owner/Documents/node.js/Strict/strict.js:25:3)
+    at Module._compile (internal/modules/cjs/loader.js:955:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:991:10)
     at Module.load (internal/modules/cjs/loader.js:811:32)
     at Function.Module._load (internal/modules/cjs/loader.js:723:14)

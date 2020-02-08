@@ -34,7 +34,7 @@ console.log("'g' is of type: " + (typeof g));
 // $ node -c strict.js
 // SyntaxError: Delete of an unqualified identifier in strict mode.
 
-delete g;
+//delete g;
 
 // 'undefined'
 console.log("'g' is of type: " + (typeof g));
