@@ -52,12 +52,7 @@ SyntaxError: Delete of an unqualified identifier in strict mode.
 $
 ```
 
-It will not catch ___runtime errors___:
-
-```bash
-$ node -c not_strict.js
-$
-```
+It will not catch __runtime errors__.
 
 #### without 'use strict'
 
@@ -75,22 +70,10 @@ b is undefined, 'b' === undefined ? = true
 I am a Global variable
 'g' is of type: string
 'g' is of type: undefined
-/home/owner/Documents/node.js/Strict/not_strict.js:41
-console.log("g is undefined, 'g' === undefined ? = " + (g === undefined));
-                                                        ^
-
-ReferenceError: g is not defined
-    at Object.<anonymous> (/home/owner/Documents/node.js/Strict/not_strict.js:41:57)
-    at Module._compile (internal/modules/cjs/loader.js:955:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:991:10)
-    at Module.load (internal/modules/cjs/loader.js:811:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:723:14)
-    at Function.Module.runMain (internal/modules/cjs/loader.js:1043:10)
-    at internal/main/run_main_module.js:17:11
 $
 ```
 
-[Data values can be compared to 'null' and 'undefined' but not to 'undeclared'.]
+[Data values can be compared to 'null' and 'undefined'.]
 
 #### with 'use strict'
 

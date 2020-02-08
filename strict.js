@@ -38,6 +38,3 @@ delete g;
 
 // 'undefined'
 console.log("'g' is of type: " + (typeof g));
-
-// Is it possible to check for 'undefined' ? No, syntax error
-console.log("g is undefined, 'g' === undefined ? = " + (g === undefined));
